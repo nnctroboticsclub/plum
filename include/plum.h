@@ -1,5 +1,18 @@
 #pragma once
 
+// Usefull C++ headers
+#include <algorithm>   // IWYU pragma: export
+#include <array>       // IWYU pragma: export
+#include <chrono>      // IWYU pragma: export
+#include <cstddef>     // IWYU pragma: export
+#include <cstdint>     // IWYU pragma: export
+#include <functional>  // IWYU pragma: export
+#include <limits>      // IWYU pragma: export
+#include <memory>      // IWYU pragma: export
+#include <optional>    // IWYU pragma: export
+#include <string>      // IWYU pragma: export
+#include <vector>      // IWYU pragma: export
+
 // Definitions
 #include "interfaces/pin_names.h"  // IWYU pragma: export
 
