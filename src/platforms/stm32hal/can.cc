@@ -16,7 +16,8 @@ bool Can::Receive(interface::CanMessage& msg) {
   return true;  // 仮の戻り値
 }
 
-bool Can::SetFilter(uint32_t filter_id, uint32_t mask) {
+bool Can::SetFilter(uint32_t filter_id, uint32_t mask,
+                    interface::CanFrameType frame_type) {
   // CANフィルタ設定コードをここに記述
   return true;  // 仮の戻り値
 }

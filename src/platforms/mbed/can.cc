@@ -19,8 +19,8 @@ bool Can::Send(const interface::CanMessage& msg) {
   if (msg.length < 1 || msg.length > 8) {
     return false;
   }
-  return can_.write(
-      {msg.id, msg.data.data(), static_cast<uint8_t>(msg.length)});
+  return can_.write({msg.id, msg.data.data(), msg.length, CANData,
+                     static_cast<::CANFormat>(msg.frame_type)});
 }
 
 bool Can::Receive(interface::CanMessage& msg) {
@@ -31,13 +31,16 @@ bool Can::Receive(interface::CanMessage& msg) {
     for (size_t i = 0; i < msg.length; i++) {
       msg.data[i] = temp_msg.data[i];
     }
+    msg.frame_type = static_cast<interface::CanFrameType>(temp_msg.format);
     return true;
   }
   return false;
 }
 
-bool Can::SetFilter(uint32_t filter_id, uint32_t mask) {
-  return can_.filter(filter_id, mask, CANStandard) == 1;
+bool Can::SetFilter(uint32_t filter_id, uint32_t mask,
+                    interface::CanFrameType frame_type) {
+  return can_.filter(filter_id, mask, static_cast<::CANFormat>(frame_type)) ==
+         1;
 }
 
 int Can::GetSendError() {

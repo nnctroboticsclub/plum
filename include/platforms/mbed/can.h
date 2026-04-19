@@ -14,7 +14,9 @@ class Can final : public interface::Can {
   bool Send(const interface::CanMessage& msg) override;
   bool Receive(interface::CanMessage& msg) override;
 
-  bool SetFilter(uint32_t filter_id, uint32_t mask) override;
+  bool SetFilter(
+      uint32_t filter_id, uint32_t mask,
+      interface::CanFrameType frame_type = interface::kCanAny) override;
 
   [[nodiscard]] int GetSendError() override;
   [[nodiscard]] int GetReceiveError() override;

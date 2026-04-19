@@ -17,9 +17,10 @@ Can::Can(interface::PinName rx_pin, interface::PinName tx_pin) {
 bool Can::Send(const interface::CanMessage& msg) {
   Logger::Value("Can::Send",
                 "ID: 0x%03X, Data: 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x "
-                "0x%02x 0x%02x",
+                "0x%02x 0x%02x, Length: %d, FrameType: %d",
                 msg.id, msg.data[0], msg.data[1], msg.data[2], msg.data[3],
-                msg.data[4], msg.data[5], msg.data[6], msg.data[7]);
+                msg.data[4], msg.data[5], msg.data[6], msg.data[7], msg.length,
+                msg.frame_type);
   return true;
 }
 
@@ -28,8 +29,10 @@ bool Can::Receive(interface::CanMessage& msg) {
   return true;
 }
 
-bool Can::SetFilter(uint32_t filter_id, uint32_t mask) {
-  Logger::Value("Can::SetFilter", "ID: 0x%03X, Mask: 0x%03X", filter_id, mask);
+bool Can::SetFilter(uint32_t filter_id, uint32_t mask,
+                    interface::CanFrameType frame_type) {
+  Logger::Value("Can::SetFilter", "ID: 0x%03X, Mask: 0x%03X, Type: %d",
+                filter_id, mask, frame_type);
   return true;
 }
 
