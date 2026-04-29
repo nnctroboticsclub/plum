@@ -1,6 +1,6 @@
 {
   "name": "plum",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A C++ library for robotics applications.",
   "keywords": [
     "robotics",
@@ -19,5 +19,8 @@
     }
   ],
   "frameworks" : ["stm32cube", "mbed"],
-  "platforms" : ["ststm32", "native"]
+  "platforms" : ["ststm32", "native"],
+  "dependencies": {
+    "logger": "https://github.com/nnctroboticsclub/logger.git"
+  }
 }

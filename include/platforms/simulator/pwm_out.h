@@ -10,7 +10,10 @@ class PwmOut final : public interface::PwmOut {
   explicit PwmOut(interface::PinName pin);
 
   void Write(float value) override;
+  void SetPulseWidth(float seconds) override;
+
   [[nodiscard]] float Read() override;
+  [[nodiscard]] float GetPulseWidth() override;
 
   void SetPeriod(float seconds) override;
   void SetFrequency(float frequency) override;
