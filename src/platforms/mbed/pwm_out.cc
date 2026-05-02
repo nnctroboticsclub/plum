@@ -17,6 +17,14 @@ void PwmOut::SetPulseWidth(float seconds) {
   pwm_out_.pulsewidth(seconds);
 }
 
+void PwmOut::SetPulseWidthUs(int microseconds) {
+  pwm_out_.pulsewidth_us(microseconds);
+}
+
+int PwmOut::GetPulseWidthUs() {
+  return pwm_out_.read_pulsewidth_us();
+}
+
 float PwmOut::Read() {
   return pwm_out_.read();
 }

@@ -13,9 +13,11 @@ class PwmOut final : public interface::PwmOut {
 
   void Write(float duty_cycle) override;
   void SetPulseWidth(float seconds) override;
+  void SetPulseWidthUs(int microseconds) override;
 
   [[nodiscard]] float Read() override;
   [[nodiscard]] float GetPulseWidth() override;
+  [[nodiscard]] int GetPulseWidthUs() override;
 
   void SetPeriod(float seconds) override;
   void SetFrequency(float frequency) override;

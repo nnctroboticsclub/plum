@@ -38,3 +38,4 @@ using namespace plum::platform::mbed;
 #endif
 
 using namespace plum;
+using enum plum::interface::PinName;
